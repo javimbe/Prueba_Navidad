@@ -1,0 +1,132 @@
+<html>
+<head>
+</head>
+<body>
+
+<p id="demoX" style="display:none"></p>
+<p id="demoY" style="display:none"></p>
+
+<img src="estrella.png" style="display:none" id="estrella">
+<img src="bola.png" style="display:none" id="bola1">
+<img src="bola2.png" style="display:none" id="bola2">
+<img src="bola3.png" style="display:none" id="bola3">
+<img src="bolalgtb.png" style="display:none" id="bola4">
+
+<canvas id="myCanvas" onmousemove="mover(event)" style="background-image: url('navidad.png'); background-repeat:no-repeat;">
+
+
+</canvas>
+
+<script>
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var img_estrella = document.getElementById("estrella");
+var img_bola1 = document.getElementById("bola1");
+var img_bola2 = document.getElementById("bola2");
+var img_bola3 = document.getElementById("bola3");
+var img_bola4 = document.getElementById("bola4");
+
+var bola1 = false;
+
+window.addEventListener("resize", size, false);
+var control = false;
+
+var X = 502;
+var Y = 450;
+
+function size (){
+
+	canvas.width = window.innerWidth-20;
+	canvas.height = window.innerHeight-20;
+
+	var bucle = setInterval(draw, 1);
+
+
+}
+
+function draw () {
+	
+	ctx.clearRect(0,0, window.innerWidth, window.innerHeight);
+	
+	var positionX = document.getElementById("demoX").innerHTML;
+	var positionY = document.getElementById("demoY").innerHTML;
+	
+	
+	canvas.addEventListener("mousedown", () => {
+	
+		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
+		
+			control = true;
+		
+		}
+		else{
+		
+			control = false;
+		
+		}
+	}, false);
+		
+	canvas.addEventListener("mouseup", () => {
+		
+		control = false;	
+
+		if((positionX >= 310)&&(positionX <= 360)&&(positionY > 20)&&(positionY < 60)){
+		
+			X = positionX - 20;
+			Y = positionY - 20;
+			
+			bola1 = true;
+		
+		}
+		else{
+			
+			X = 502;
+			Y = 450;
+			
+			bola1 = false;
+			
+		}
+	
+	}, false);
+	
+	if(control){
+	
+		X = positionX - 20;
+		Y = positionY - 20;
+	
+	}
+	
+	if(bola1){
+	
+		ctx.drawImage(img_bola1,320,120,30,30);
+		ctx.drawImage(img_bola2,380,150,30,30);
+		ctx.drawImage(img_bola3,390,230,30,30);
+		ctx.drawImage(img_bola2,360,270,30,30);
+		ctx.drawImage(img_bola4,330,200,30,30);
+		ctx.drawImage(img_bola1,270,280,30,30);
+		ctx.drawImage(img_bola3,300,240,30,30);
+		ctx.drawImage(img_bola2,320,350,30,30);
+		
+	
+	}
+	
+	ctx.beginPath();
+	ctx.drawImage(img_estrella,X, Y, 60, 60);
+	ctx.closePath();
+}
+
+size();
+
+function mover (event){
+
+document.getElementById("demoX").textContent = event.clientX;
+document.getElementById("demoY").textContent = event.clientY;
+
+}
+
+
+</script>
+</body>
+</html>
