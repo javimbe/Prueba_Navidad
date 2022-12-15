@@ -43,7 +43,6 @@ var bola1 = false;
 
 window.addEventListener("resize", size, false);
 var control = false;
-var control2 = false;
 
 var X = window.innerWidth/3;
 var Y = window.innerHeight*0.8;
@@ -115,12 +114,12 @@ function draw () {
 	
 		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
 		
-			control2 = true;
+			control = true;
 		
 		}
 		else{
 		
-			control2 = false;
+			control = false;
 		
 		}
 	}, false);
