@@ -16,8 +16,9 @@
 <img src="bola2.png" style="display:none" id="bola2">
 <img src="bola3.png" style="display:none" id="bola3">
 <img src="bolalgtb.png" style="display:none" id="bola4">
+<img src="fondo.jpg" style="display:none" id="fondo">
 
-<canvas id="myCanvas" onmousemove="mover(event)" style="background-image: url('navidad.png'); background-repeat:no-repeat;">
+<canvas id="myCanvas" onmousemove="mover(event)">
 
 
 </canvas>
@@ -32,6 +33,9 @@ var img_bola1 = document.getElementById("bola1");
 var img_bola2 = document.getElementById("bola2");
 var img_bola3 = document.getElementById("bola3");
 var img_bola4 = document.getElementById("bola4");
+var fondo = document.getElementById("fondo");
+
+
 
 var bola1 = false;
 
@@ -54,6 +58,10 @@ function size (){
 function draw () {
 	
 	ctx.clearRect(0,0, window.innerWidth, window.innerHeight);
+	
+	ctx.beginPath();
+	ctx.drawImage(fondo, 0, 0, window.innerWidth,window.innerHeight);
+	ctx.closePath();
 	
 	var positionX = document.getElementById("demoX").innerHTML;
 	var positionY = document.getElementById("demoY").innerHTML;
