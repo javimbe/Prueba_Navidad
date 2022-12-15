@@ -208,8 +208,17 @@ function draw () {
 				Y = event.targetTouches[0].clientY;
 		
 			}
-			else{
-				if(window.innerWidth >= window.innerHeight){
+			
+		}
+	}, false);
+		
+	document.body.addEventListener("touchend",(event)=>{
+
+		if(event.target == canvas){
+			event.preventDefault();
+			control2 = false;
+			
+			if(window.innerWidth >= window.innerHeight){
 					if((event.targetTouches[0].clientX >= window.innerWidth*11/100)&&(event.targetTouches[0].clientX <= window.innerWidth*11/100+40)&&(event.targetTouches[0].clientY > window.innerHeight*7/100)&&(event.targetTouches[0].clientY < window.innerHeight*7/100+40)){
 		
 						X = event.targetTouches[0].clientX - 20;
@@ -248,16 +257,6 @@ function draw () {
 					}
 				
 				}
-			}
-			
-		}
-	}, false);
-		
-	document.body.addEventListener("touchend",(event)=>{
-
-		if(event.target == canvas){
-			event.preventDefault();
-			control2 = false;
 		}
 
 	},false);
