@@ -12,6 +12,7 @@
 <p id="demoY" style="display:none"></p>
 
 <img src="estrella.png" style="display:none" id="estrella">
+<img src="arbo.png" style="display:none" id="arbol">
 <img src="bola.png" style="display:none" id="bola1">
 <img src="bola2.png" style="display:none" id="bola2">
 <img src="bola3.png" style="display:none" id="bola3">
@@ -29,6 +30,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 var img_estrella = document.getElementById("estrella");
+var img_arbol = document.getElementById("arbol");
 var img_bola1 = document.getElementById("bola1");
 var img_bola2 = document.getElementById("bola2");
 var img_bola3 = document.getElementById("bola3");
@@ -61,6 +63,10 @@ function draw () {
 	
 	ctx.beginPath();
 	ctx.drawImage(fondo, 0, 0, window.innerWidth,window.innerHeight);
+	ctx.closePath();
+	
+	ctx.beginPath();
+	ctx.drawImage(img_arbol,0,window.innerHeight/20,window.innerWidth*55/100,window.innerHeight*0.9 );
 	ctx.closePath();
 	
 	var positionX = document.getElementById("demoX").innerHTML;
