@@ -10,6 +10,8 @@
 
 <p id="demoX" style="display:none"></p>
 <p id="demoY" style="display:none"></p>
+<p id="demo_touchX" ></p>
+<p id="demo_touchY" ></p>
 
 <img src="estrella.png" style="display:none" id="estrella">
 <img src="arbo.png" style="display:none" id="arbol">
@@ -74,6 +76,9 @@ function draw () {
 	var positionX = document.getElementById("demoX").innerHTML;
 	var positionY = document.getElementById("demoY").innerHTML;
 	
+	var positionX_touch = document.getElementById("demo_touchX").innerHTML;
+	var positionY_touch = document.getElementById("demo_touchY").innerHTML;
+	
 	
 	canvas.addEventListener("mousedown", () => {
 	
@@ -126,7 +131,7 @@ function draw () {
 		}
 	}, false);
 	
-	canvas.addEventListener("touchmove", () => {
+	canvas.addEventListener("touchmove", (event) => {
 	
 		if((event.touches[0].clientX >= X)&&(event.touches[0].clientX <= X + 40)&&(event.touches[0].clientY > Y)&&(event.touches[0].clientY < Y + 40)){
 		
@@ -140,7 +145,7 @@ function draw () {
 		}
 	}, false);
 		
-	canvas.addEventListener("touchend", () => {
+	canvas.addEventListener("touchend", (event) => {
 		
 		control2 = false;	
 
@@ -174,8 +179,8 @@ function draw () {
 	
 	if(control2){
 	
-		X = event.touches[0].clientX;
-		Y = event.touches[0].clientY;
+		X = positionX_touch;
+		Y = positionY_touch;
 	
 	}
 	
@@ -205,6 +210,13 @@ function mover (event){
 
 document.getElementById("demoX").textContent = event.clientX;
 document.getElementById("demoY").textContent = event.clientY;
+
+}
+
+function touch (event){
+
+document.getElementById("demo_touchX").textContent = event.touches[0].clientX;
+document.getElementById("demo_touchY").textContent = event.touches[0].clientY;
 
 }
 
