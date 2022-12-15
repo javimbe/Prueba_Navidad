@@ -28,7 +28,6 @@
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var posicion = canvas.getBoundingClientRect();
 
 var img_estrella = document.getElementById("estrella");
 var img_arbol = document.getElementById("arbol");
@@ -45,7 +44,6 @@ var bola1 = false;
 window.addEventListener("resize", size, false);
 
 var control = false;
-var control2 = false;
 
 var X = window.innerWidth/3;
 var Y = window.innerHeight*0.8;
@@ -115,40 +113,40 @@ function draw () {
 	
 	canvas.addEventListener("touchstart", () => {
 	
-		if((posicion.x >= X)&&(posicion.x <= X + 40)&&(posicion.y > Y)&&(posicion.y < Y + 40)){
+		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
 		
-			control2 = true;
+			control = true;
 		
 		}
 		else{
 		
-			control2 = false;
+			control = false;
 		
 		}
 	}, false);
 	
 	canvas.addEventListener("touchmove", () => {
 	
-		if((posicion.x >= X)&&(posicion.x <= X + 40)&&(posicion.y > Y)&&(posicion.y < Y + 40)){
+		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
 		
-			control2 = true;
+			control = true;
 		
 		}
 		else{
 		
-			control2 = false;
+			control = false;
 		
 		}
 	}, false);
 		
 	canvas.addEventListener("touchend", () => {
 		
-		control2 = false;	
+		control = false;	
 
-		if((posicion.x >= window.innerWidth/4)&&(posicion.x <= window.innerWidth/3+40)&&(posicion.y > window.innerHeight/10)&&(posicion.y < window.innerHeight/10+40)){
+		if((positionX >= window.innerWidth/4)&&(positionX <= window.innerWidth/3+40)&&(positionY > window.innerHeight/10)&&(positionY < window.innerHeight/10+40)){
 		
-			X = posicion.x - 20;
-			Y = posicion.y - 20;
+			X = positionX - 20;
+			Y = positionY - 20;
 			
 			bola1 = true;
 		
@@ -173,11 +171,6 @@ function draw () {
 	
 	}
 	
-	if(control2){
-	
-		X = posicion.x - 20;
-		Y = posicion.y - 20;
-	}
 	
 	if(bola1){
 	
