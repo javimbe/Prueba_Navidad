@@ -108,7 +108,9 @@ function draw () {
 			
 		}
 		
-	canvas.addEventListener("touchstart", () => {
+	}, false);
+	
+		canvas.addEventListener("touchstart", () => {
 	
 		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
 		
@@ -142,8 +144,8 @@ function draw () {
 			bola1 = false;
 			
 		}
-	
-	}, false);
+		
+		
 	
 	}, false);
 	
