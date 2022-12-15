@@ -107,6 +107,43 @@ function draw () {
 			bola1 = false;
 			
 		}
+		
+	canvas.addEventListener("touchstart", () => {
+	
+		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
+		
+			control = true;
+		
+		}
+		else{
+		
+			control = false;
+		
+		}
+	}, false);
+		
+	canvas.addEventListener("touchend", () => {
+		
+		control = false;	
+
+		if((positionX >= window.innerWidth/4)&&(positionX <= window.innerWidth/3+40)&&(positionY > window.innerHeight/10)&&(positionY < window.innerHeight/10+40)){
+		
+			X = positionX - 20;
+			Y = positionY - 20;
+			
+			bola1 = true;
+		
+		}
+		else{
+			
+			X = window.innerWidth/3;
+			Y = window.innerHeight*0.8;
+			
+			bola1 = false;
+			
+		}
+	
+	}, false);
 	
 	}, false);
 	
