@@ -44,6 +44,7 @@ var bola1 = false;
 window.addEventListener("resize", size, false);
 
 var control = false;
+var control2 = false;
 
 var X = window.innerWidth/3;
 var Y = window.innerHeight*0.8;
@@ -111,42 +112,42 @@ function draw () {
 		
 	}, false);
 	
-	canvas.addEventListener("touchstart", () => {
+	canvas.addEventListener("touchstart", (event) => {
 	
-		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
+		if((event.touches[0].clientX >= X)&&(event.touches[0].clientX <= X + 40)&&(event.touches[0].clientY > Y)&&(event.touches[0].clientY < Y + 40)){
 		
-			control = true;
+			control2 = true;
 		
 		}
 		else{
 		
-			control = false;
+			control2 = false;
 		
 		}
 	}, false);
 	
 	canvas.addEventListener("touchmove", () => {
 	
-		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
+		if((event.touches[0].clientX >= X)&&(event.touches[0].clientX <= X + 40)&&(event.touches[0].clientY > Y)&&(event.touches[0].clientY < Y + 40)){
 		
-			control = true;
+			control2 = true;
 		
 		}
 		else{
 		
-			control = false;
+			control2 = false;
 		
 		}
 	}, false);
 		
 	canvas.addEventListener("touchend", () => {
 		
-		control = false;	
+		control2 = false;	
 
-		if((positionX >= window.innerWidth/4)&&(positionX <= window.innerWidth/3+40)&&(positionY > window.innerHeight/10)&&(positionY < window.innerHeight/10+40)){
+		if((event.touches[0].clientX >= window.innerWidth/4)&&(event.touches[0].clientX <= window.innerWidth/3+40)&&(event.touches[0].clientY > window.innerHeight/10)&&(event.touches[0].clientY < window.innerHeight/10+40)){
 		
-			X = positionX - 20;
-			Y = positionY - 20;
+			X = event.touches[0].clientX - 20;
+			Y = event.touches[0].clientY - 20;
 			
 			bola1 = true;
 		
@@ -168,6 +169,13 @@ function draw () {
 	
 		X = positionX - 20;
 		Y = positionY - 20;
+	
+	}
+	
+	if(control2){
+	
+		X = event.touches[0].clientX - 20;
+		Y = event.touches[0].clientY - 20;
 	
 	}
 	
