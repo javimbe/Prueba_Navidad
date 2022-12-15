@@ -43,6 +43,7 @@ var bola1 = false;
 
 window.addEventListener("resize", size, false);
 var control = false;
+var control2 = false;
 
 var X = window.innerWidth/3;
 var Y = window.innerHeight*0.8;
@@ -110,9 +111,23 @@ function draw () {
 		
 	}, false);
 	
-		canvas.addEventListener("touchstart", () => {
+	canvas.addEventListener("touchstart", () => {
 	
 		if((positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
+		
+			control2 = true;
+		
+		}
+		else{
+		
+			control2 = false;
+		
+		}
+	}, false);
+	
+	canvas.addEventListener("touchmove", () => {
+	
+		if(control2&&(positionX >= X)&&(positionX <= X + 40)&&(positionY > Y)&&(positionY < Y + 40)){
 		
 			control = true;
 		
