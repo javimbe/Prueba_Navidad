@@ -216,13 +216,10 @@ function draw () {
 
 		if(event.target == canvas){
 			event.preventDefault();
-			control2 = false;
+			
 			
 			if(window.innerWidth >= window.innerHeight){
-					if((event.targetTouches[0].clientX >= window.innerWidth*11/100)&&(event.targetTouches[0].clientX <= window.innerWidth*11/100+40)&&(event.targetTouches[0].clientY > window.innerHeight*7/100)&&(event.targetTouches[0].clientY < window.innerHeight*7/100+40)){
-		
-						X = event.targetTouches[0].clientX - 20;
-						Y = event.targetTouches[0].clientY - 20;
+					if((X >= window.innerWidth*11/100)&&(X <= window.innerWidth*11/100+40)&&(Y > window.innerHeight*7/100)&&(Y < window.innerHeight*7/100+40)){
 			
 						bola1 = true;
 		
@@ -231,7 +228,7 @@ function draw () {
 			
 						X = window.innerWidth/3;
 						Y = window.innerHeight*0.8;
-			
+						control2 = false;
 						bola1 = false;
 			
 					}
@@ -239,11 +236,8 @@ function draw () {
 				}
 				else{
 				
-					if((event.targetTouches[0].clientX >= window.innerWidth*26/100)&&(event.targetTouches[0].clientX <= window.innerWidth*26/100+40)&&(event.targetTouches[0].clientY > window.innerHeight*15/100)&&(event.targetTouches[0].clientY < window.innerHeight*15/100+40)){
-		
-						X = event.targetTouches[0].clientX - 20;
-						Y = event.targetTouches[0].clientY - 20;
-			
+					if((X >= window.innerWidth*26/100)&&(X <= window.innerWidth*26/100+40)&&(Y > window.innerHeight*15/100)&&(Y < window.innerHeight*15/100+40)){
+				
 						bola1 = true;
 		
 					}
@@ -251,7 +245,7 @@ function draw () {
 			
 						X = window.innerWidth/3;
 						Y = window.innerHeight*0.8;
-			
+						control2 = false;
 						bola1 = false;
 			
 					}
